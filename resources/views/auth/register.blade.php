@@ -47,6 +47,22 @@
                                         <label for="password-confirm"><i class="fas fa-key"></i>&nbsp;确认密码</label>
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                                     </div>
+                                    <div class="form-group {{ $errors->has('captcha') ? ' has-error' : '' }}">
+                                        <label for="captcha"><i class="fas fa-user-secret"></i>&nbsp;验证码</label>
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <input id="captcha" class="form-control" name="captcha">
+                                            </div>
+                                            <div class="col-4 px-0">
+                                                <img class="img-thumbnail captcha "  src="{{ captcha_src('flat') }}" onclick="this.src='/captcha/flat?'+Math.random()" title="点击图片重新获取验证码">
+                                            </div>
+                                        </div>
+                                        @if ($errors->has('captcha'))
+                                            <span class="help-block">
+                                            <strong>{{ $errors->first('captcha') }}</strong>
+                                        </span>
+                                        @endif
+                                    </div>
                                     <div class="row justify-content-center mt-4">
                                         <button type="submit" class="btn btn-primary">立即注册</button>
                                     </div>

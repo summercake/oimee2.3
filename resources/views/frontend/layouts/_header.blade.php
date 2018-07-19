@@ -46,38 +46,38 @@
                 <!-- 登录注册链接开始 -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('login')}}"><b>登陆</b></a>
+                        <a class="nav-link px-0 mx-2" href="{{route('login')}}"><b>登陆</b></a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link px-0 mx-2" href="{{route('register')}}"><b>注册</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('register')}}"><b>注册</b></a>
+                        <a class="nav-link px-0 mx-2" href="{{route('about')}}"><b>关于欧米</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('about')}}"><b>关于欧米</b></a>
+                        <a class="nav-link px-0 mx-2" href="{{route('adv-business')}}"><b>广告推广</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('adv-business')}}"><b>广告推广</b></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('contact')}}"><b>联系我们</b></a>
+                        <a class="nav-link px-0 mx-2" href="{{route('contact')}}"><b>联系我们</b></a>
                     </li>
                 @else
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('user-info')}}">
+                        <a class="nav-link px-0 mx-2" href="{{route('user-info')}}">
                             <img src="{{asset('/img/avatar.jpg')}}" width="16" class="rounded-circle d-inline" alt="">
                             <b>我的欧米</b>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('about')}}"><b>关于欧米</b></a>
+                        <a class="nav-link px-0 mx-2" href="{{route('about')}}"><b>关于欧米</b></a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link px-0 mx-2" href="{{route('adv-business')}}"><b>广告推广</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('adv-business')}}"><b>广告推广</b></a>
+                        <a class="nav-link px-0 mx-2" href="{{route('contact')}}"><b>联系我们</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('contact')}}"><b>联系我们</b></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('logout') }}"
+                        <a class="nav-link px-0 mx-2" href="{{ route('logout') }}"
                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <b>退出登录</b>
                         </a>
@@ -109,7 +109,6 @@
             <li class="nav-item mx-3"><a href="">美妆</a></li>
             <li class="nav-item mx-3"><a href="">数码电子</a></li>
             <li class="nav-item mx-3"><a href="">生活</a></li>
-            <li class="nav-item mx-3"><a href="">运动</a></li>
         </ul>
     </div>
 </div>

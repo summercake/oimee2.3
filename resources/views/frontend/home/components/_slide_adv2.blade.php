@@ -2,8 +2,8 @@
     <div class="row" id="adv-first">
         <div class="col-4">
             <h5 id="tags">
-                <a href="" class="section-btn ">热门推荐</a>
-                <a href="" class="section-btn ">最多关注</a>
+                <a href="" class="btn btn-outline-primary mr-1">热门推荐</a>
+                <a href="" class="btn btn-outline-primary mx-1">最多关注</a>
             </h5>
         </div>
         <div class="col-8 slide-indicator text-right" id="adv-second">

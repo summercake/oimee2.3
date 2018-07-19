@@ -13525,7 +13525,7 @@ a.text-dark:focus {
 }
 
 html {
-  font-size: 12px;
+  font-size: 14px;
   position: relative;
   min-height: 100%;
 }
@@ -13553,11 +13553,6 @@ html .text-dark-light {
 
 html .text-dark-extra-light {
   color: rgba(0, 0, 0, 0.3);
-}
-
-html .section-btn:hover {
-  border-top: 2px solid #f97f86;
-  padding-top: 5px;
 }
 
 .footer {
@@ -13672,5 +13667,10 @@ html .section-btn:hover {
 
 .cards-row-hidden {
   display: none;
+}
+
+img.captcha {
+  margin: 0 auto;
+  cursor: pointer;
 }
 

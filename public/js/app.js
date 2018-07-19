@@ -13692,6 +13692,15 @@ $.ajaxSetup({
 	}
 });
 
+//$(function () {
+//	$('[data-toggle="tooltip"]').tooltip()
+//})
+//
+//// Initialize popover component
+//$(function () {
+//	$('[data-toggle="popover"]').popover()
+//})
+
 /***/ }),
 /* 12 */
 /***/ (function(module, exports, __webpack_require__) {
