@@ -62,7 +62,7 @@
                     </li>
                 @else
                     <li class="nav-item">
-                        <a class="nav-link px-0 mx-2" href="{{route('user-info')}}">
+                        <a class="nav-link px-0 mx-2" href="{{route('users.show', Auth::id())}}">
                             <img src="{{asset('/img/avatar.jpg')}}" width="16" class="rounded-circle d-inline" alt="">
                             <b>我的欧米</b>
                         </a>
@@ -82,7 +82,7 @@
                             <b>退出登录</b>
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
+                            @csrf
                         </form>
                     </li>
             @endguest

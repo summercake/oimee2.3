@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-2">
-                @include('frontend.user._sidebar')
+                @include('frontend.user.components._sidebar')
             </div>
             <div class="col-6">
                 <nav aria-label="breadcrumb ">

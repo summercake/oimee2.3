@@ -12,7 +12,9 @@
 */
 
 Route::get('/', 'PageController@root')->name('home');
-
+Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);
+Route::get('/users/password/{user}', 'UsersController@pwdEdit')->name('user.pwd.edit');
+Route::post('/users/password', 'UsersController@pwdUpdate')->name('user.pwd.update');
 //Auth::routes();
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -52,13 +54,11 @@ Route::get('/discount-details', function (){
 })->name('discount-details');
 
 /* user modular */
-Route::get('/user/info', function (){
-    return view('frontend.user.info');
-})->name('user-info');
+//Route::get('/user/info', function (){
+//    return view('frontend.user.info');
+//})->name('user-info');
 
-Route::get('/user/password', function (){
-    return view('frontend.user.change-password');
-})->name('user-pwd');
+
 
 Route::get('/user/address', function (){
     return view('frontend.user.address');
@@ -71,4 +71,8 @@ Route::get('/user/address-add', function (){
 Route::get('/user/collection', function (){
     return view('frontend.user.collection');
 })->name('user-collection');
+
+//Route::get('/user/info', function (){
+//    return view('frontend.user.show');
+//})->name('user-info');
 
