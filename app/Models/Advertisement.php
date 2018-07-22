@@ -28,6 +28,10 @@ class Advertisement extends Model
     ];
 
     protected $casts = [
-        'validation' => 'boolean', // on_sale 是一个布尔类型的字段
+        'validation' => 'boolean', // validation 是一个布尔类型的字段
     ];
+
+    public function category(){
+        return $this->hasOne(Category::class, 'id', 'category_id');
+    }
 }

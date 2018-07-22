@@ -7,9 +7,14 @@ class Category extends Model
 {
     protected $table = 'categories';
     protected $fillable = [
-        'pid','name'
+        'pid',
+        'name',
     ];
     //public function categories(){
     //    return $this->hasOne('Category', 'id', 'pid');
     //}
+    public function advertisement()
+    {
+        return $this->belongsTo(Advertisement::class);
+    }
 }

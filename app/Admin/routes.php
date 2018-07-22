@@ -17,4 +17,5 @@ Route::group([
     $router->get('categories/{id}/edit', 'CategoriesController@edit');
     $router->put('categories/{id}', 'CategoriesController@update');
     $router->delete('categories/{id}', 'CategoriesController@destroy');
+    $router->get('advertisements', 'AdvertisementsController@index');
 });
