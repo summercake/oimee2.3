@@ -7,6 +7,9 @@ class Category extends Model
 {
     protected $table = 'categories';
     protected $fillable = [
-        'pid','sid','name'
+        'pid','name'
     ];
+    //public function categories(){
+    //    return $this->hasOne('Category', 'id', 'pid');
+    //}
 }
