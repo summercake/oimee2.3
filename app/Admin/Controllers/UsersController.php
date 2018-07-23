@@ -47,7 +47,7 @@ class UsersController extends Controller
 
             $grid->email('邮箱');
 
-            $grid->introduction('邮箱');
+            $grid->introduction('个人简介');
 
             //$grid->email_verified('已验证邮箱')->display(function ($value) {
             //    return $value ? '是' : '否';

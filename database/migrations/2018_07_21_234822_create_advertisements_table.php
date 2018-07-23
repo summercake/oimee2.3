@@ -21,7 +21,7 @@ class CreateAdvertisementsTable extends Migration
             $table->string('title');
             $table->string('introduction')->nullable();
             $table->text('description')->nullable();
-            $table->integer('cover_image')->unsigned();
+            $table->string('cover_image')->nullable();
             // adv_link is used for store product official shopping link
             $table->string('link')->nullable();
             // adv_secondary_link is a backup product link

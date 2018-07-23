@@ -34,4 +34,14 @@ class Advertisement extends Model
     public function category(){
         return $this->hasOne(Category::class, 'id', 'category_id');
     }
+
+    public function scopeAdvertisement($query)
+    {
+        return $query->where('dis_or_adv', '=', 1);
+    }
+
+    public function scopeDiscount($query)
+    {
+        return $query->where('dis_or_adv', '=', 0);
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Advertisement;
+use App\Models\Category;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Facades\Admin;
@@ -22,7 +23,7 @@ class AdvertisementsController extends Controller
     {
         return Admin::content(function (Content $content){
 
-            $content->header('折扣广告列表');
+            $content->header('广告列表');
             $content->body($this->grid());
         });
     }
@@ -35,10 +36,8 @@ class AdvertisementsController extends Controller
      */
     public function edit($id)
     {
-        return Admin::content(function (Content $content) use ($id){
-
-            $content->header('header');
-            $content->description('description');
+        return Admin::content(function (Content $content) use ($id) {
+            $content->header('编辑广告');
             $content->body($this->form()->edit($id));
         });
     }
@@ -51,9 +50,7 @@ class AdvertisementsController extends Controller
     public function create()
     {
         return Admin::content(function (Content $content){
-
-            $content->header('header');
-            $content->description('description');
+            $content->header('创建广告');
             $content->body($this->form());
         });
     }
@@ -66,18 +63,10 @@ class AdvertisementsController extends Controller
     protected function grid()
     {
         return Admin::grid(Advertisement::class, function (Grid $grid){
-            $grid->filter(function ($filter){
-
-                // 去掉默认的id过滤器
-                $filter->disableIdFilter();
-                // 在这里添加字段过滤器
-                $filter->equal('dis_or_adv', 1);
-                return $filter;
-            });
+            $grid->model()->where('dis_or_adv', '=', 1);
             $grid->id('ID')->sortable();
             $grid->title('广告名称');
             $grid->category()->name('所属分类')->sortable();
-            $grid->title('广告名称');
             $grid->original_price('原始价格')->sortable();
             $grid->final_price('最终价格')->sortable();
             $grid->actual_charge_price('实际价格')->sortable();
@@ -93,9 +82,6 @@ class AdvertisementsController extends Controller
             });
             $grid->created_at('创建时间')->sortable();
             $grid->updated_at('修改时间')->sortable();
-            //$grid->actions(function ($actions) {
-            //    $actions->disableDelete();
-            //});
             $grid->tools(function ($tools){
                 // 禁用批量删除按钮
                 $tools->batch(function ($batch){
@@ -112,11 +98,44 @@ class AdvertisementsController extends Controller
      */
     protected function form()
     {
+        // 创建一个表单
         return Admin::form(Advertisement::class, function (Form $form){
-
-            $form->display('id', 'ID');
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
+            // 创建类型选择
+            $form->select('dis_or_adv', '类型')->options([1 => '广告'])->rules('required');
+            // 创建分类标签选择框
+            $categories = Category::all('id', 'name')->toArray();
+            $data = [];
+            foreach ($categories as $category) {
+                $data[$category['id']] = $category['name'].'-'.$category['id'];
+            }
+            $form->select('category_id', '分类标签')->options($data);
+            $form->select('company_id', '公司名称')->options($data);
+            // 创建一个输入框，第一个参数 title 是模型的字段名，第二个参数是该字段描述
+            $form->text('title', '名称')->rules('required');
+            $form->text('introduction', '简介')->rules('required');
+            $form->editor('description', '描述')->rules('required');
+            // 创建一个选择图片的框
+            $form->image('cover_image', '封面图片')->removable()->rules('required|image');
+            $form->text('link', '链接1')->rules('required');
+            $form->text('second_link', '链接2')->rules('required');
+            $form->currency('original_price', '原始价格')->symbol('$')->rules('required');
+            $form->currency('final_price', '最终价格')->symbol('$')->rules('required');
+            $form->currency('actual_charge_price', '实际价格')->symbol('$')->rules('required');
+            $form->rate('discount_rate', '折扣率');
+            $form->datetimeRange('start_date', 'valid_to_date', '有效期');
+            $form->datetime('display_valid_to_date', '实际截止日期')->format('YYYY-MM-DD HH:mm:ss');
+            // 创建一组单选框
+            $form->radio('validation', '是否通过审核')->options(['1' => '是', '0' => '否'])->default('0');
         });
+    }
+
+    public function store()
+    {
+        return $this->form()->store();
+    }
+
+    public function update($id)
+    {
+        return $this->form()->update($id);
     }
 }
