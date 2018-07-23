@@ -1,4 +1,4 @@
-<div class="footer">
+<div class="footer d-none d-xl-block d-lg-block">
     <div class="container">
         <div class="row">
             <div class="col-2">

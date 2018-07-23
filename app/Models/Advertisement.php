@@ -9,7 +9,9 @@ class Advertisement extends Model
     protected $fillable = [
         'dis_or_adv',
         'category_id',
+        'tag_id',
         'company_id',
+        'location_id',
         'title',
         'introduction',
         'description',

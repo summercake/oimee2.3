@@ -19,8 +19,6 @@ class CreateTagsTable extends Migration
             $table->integer('discount_count')->default(0)->comment('折扣数');
             $table->integer('adv_count')->default(0)->comment('广告数');
             $table->integer('post_count')->default(0)->comment('文章数');
-            $table->tinyInteger('validation')->default(1);
-
             $table->timestamps();
         });
     }

@@ -38,7 +38,7 @@ class UsersController extends Controller
     {
         // 根据回调函数，在页面上用表格的形式展示用户记录
         return Admin::grid(User::class, function (Grid $grid) {
-
+            $grid->model()->orderBy('created_at', 'desc');
             // 创建一个列名为 ID 的列，内容是用户的 id 字段，并且可以在前端页面点击排序
             $grid->id('ID')->sortable();
 
@@ -54,6 +54,7 @@ class UsersController extends Controller
             //});
 
             $grid->created_at('注册时间');
+            $grid->updated_at('修改时间');
 
             // 不在页面显示 `新建` 按钮，因为我们不需要在后台新建用户
             $grid->disableCreateButton();

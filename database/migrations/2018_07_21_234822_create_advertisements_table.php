@@ -14,10 +14,10 @@ class CreateAdvertisementsTable extends Migration
         Schema::create('advertisements', function (Blueprint $table){
             $table->increments('id');
             $table->tinyInteger('dis_or_adv')->default(0);
-            $table->integer('category_id')->unsigned();
-            $table->integer('tag_id')->unsigned();
-            $table->integer('company_id')->unsigned();
-            $table->integer('location_id')->unsigned();
+            $table->integer('category_id')->unsigned()->default(1);
+            $table->integer('tag_id')->unsigned()->default(1);
+            $table->integer('company_id')->unsigned()->default(0);
+            $table->integer('location_id')->unsigned()->default(0);
             // adv_tag is used for identifying status of normal, hottest, newest and others
             //$table -> integer('sale_note_id')-> unsigned()->nullable();
             $table->string('title');

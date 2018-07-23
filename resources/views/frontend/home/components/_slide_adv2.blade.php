@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container d-none d-xl-block">
     <div class="row" id="adv-first">
         <div class="col-4">
             <h5 id="tags">
@@ -21,12 +21,12 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-4">
+        <div class="col-md-4 col-sm-6">
             <a href="">
                 <img src="{{asset('/img/nike2.jpeg')}}" alt="" class="img-fluid">
             </a>
         </div>
-        <div class="col-8">
+        <div class="col-md-8 col-sm-6">
             <div class="adv-top-section">
                 <div class="adv-top-hot">
                     <div id="adv-home-slide" class="carousel slide" data-ride="carousel">

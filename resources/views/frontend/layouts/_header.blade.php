@@ -24,10 +24,10 @@
                     <a href="#" class=" ml-3" style="font-size: 1.25rem;"><b>社区</b></a>
                 </li>
             </ul>
-            <form action="{{route('discount-list')}}" method="get" class="form-inline my-2 my-lg-0 .d-sm-none .d-md-block mx-1">
+            <form action="{{route('discount-list')}}" method="get" class="form-inline my-2 mx-auto d-none d-xl-block ">
                 <div class="input-group" id="nav-search">
                     <div class="input-group-prepend">
-                        <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+                        <select class="custom-select" id="inputGroupSelect">
                             <option selected>请选择城市...</option>
                             <option value="1">Houston</option>
                             <option value="2">Dallas</option>

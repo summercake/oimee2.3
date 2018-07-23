@@ -40,4 +40,11 @@ Route::group([
     $router->get('discounts/{id}/edit', 'DiscountsController@edit');
     $router->put('discounts/{id}', 'DiscountsController@update');
     $router->delete('discounts/{id}', 'DiscountsController@destroy');
+    /* 文章模块 */
+    $router->get('posts', 'PostsController@index');
+    $router->get('posts/create', 'PostsController@create');
+    $router->post('posts', 'PostsController@store');
+    $router->get('posts/{id}/edit', 'PostsController@edit');
+    $router->put('posts/{id}', 'PostsController@update');
+    $router->delete('posts/{id}', 'PostsController@destroy');
 });

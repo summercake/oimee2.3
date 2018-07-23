@@ -63,6 +63,7 @@ class AdvertisementsController extends Controller
     protected function grid()
     {
         return Admin::grid(Advertisement::class, function (Grid $grid){
+            $grid->model()->orderBy('created_at', 'desc');
             $grid->model()->where('dis_or_adv', '=', 1);
             $grid->id('ID')->sortable();
             $grid->title('广告名称');
@@ -77,9 +78,7 @@ class AdvertisementsController extends Controller
             $grid->display_valid_to_date('显示截止日期')->sortable();
             $grid->like_count('点赞总数')->sortable();
             $grid->view_count('浏览总数')->sortable();
-            $grid->validation('审核')->display(function ($value){
-                return $value ? '是' : '否';
-            });
+            $grid->validation('审核')->editable('select', [0 => '否', 1 => '是']);
             $grid->created_at('创建时间')->sortable();
             $grid->updated_at('修改时间')->sortable();
             $grid->tools(function ($tools){
@@ -100,6 +99,7 @@ class AdvertisementsController extends Controller
     {
         // 创建一个表单
         return Admin::form(Advertisement::class, function (Form $form){
+
             // 创建类型选择
             $form->select('dis_or_adv', '类型')->options([1 => '广告'])->rules('required');
             // 创建分类标签选择框

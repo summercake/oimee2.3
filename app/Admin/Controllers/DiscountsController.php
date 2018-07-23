@@ -64,6 +64,7 @@ class DiscountsController extends Controller
     protected function grid()
     {
         return Admin::grid(Advertisement::class, function (Grid $grid){
+            $grid->model()->orderBy('created_at', 'desc');
             $grid->model()->where('dis_or_adv', '=', 0);
             $grid->id('ID')->sortable();
             $grid->title('折扣名称');
@@ -78,9 +79,7 @@ class DiscountsController extends Controller
             $grid->display_valid_to_date('显示截止日期')->sortable();
             $grid->like_count('点赞总数')->sortable();
             $grid->view_count('浏览总数')->sortable();
-            $grid->validation('审核')->display(function ($value){
-                return $value ? '是' : '否';
-            });
+            $grid->validation('审核')->editable('select', [0 => '否', 1 => '是']);
             $grid->created_at('创建时间')->sortable();
             $grid->updated_at('修改时间')->sortable();
             $grid->tools(function ($tools){
