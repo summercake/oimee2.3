@@ -15,7 +15,9 @@ class CreateAdvertisementsTable extends Migration
             $table->increments('id');
             $table->tinyInteger('dis_or_adv')->default(0);
             $table->integer('category_id')->unsigned();
+            $table->integer('tag_id')->unsigned();
             $table->integer('company_id')->unsigned();
+            $table->integer('location_id')->unsigned();
             // adv_tag is used for identifying status of normal, hottest, newest and others
             //$table -> integer('sale_note_id')-> unsigned()->nullable();
             $table->string('title');

@@ -19,6 +19,13 @@ Route::group([
     $router->get('categories/{id}/edit', 'CategoriesController@edit');
     $router->put('categories/{id}', 'CategoriesController@update');
     $router->delete('categories/{id}', 'CategoriesController@destroy');
+    /* 标签管理模块 */
+    $router->get('tags', 'TagsController@index');
+    $router->get('tags/create', 'TagsController@create');
+    $router->post('tags', 'TagsController@store');
+    $router->get('tags/{id}/edit', 'TagsController@edit');
+    $router->put('tags/{id}', 'TagsController@update');
+    $router->delete('tags/{id}', 'TagsController@destroy');
     /* 广告模块 */
     $router->get('advertisements', 'AdvertisementsController@index');
     $router->get('advertisements/create', 'AdvertisementsController@create');
