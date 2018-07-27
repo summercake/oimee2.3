@@ -1,9 +1,11 @@
 <div class="user-sidebar bg-light p-4 ">
     <ul class="list-unstyled">
         <li>
-            <a href="" title="更改头像" class="">
-                <img src="{{$user->avatar}}" alt="" class="img-fluid rounded-circle mx-auto d-block">
-            </a>
+            @if($user->avatar)
+                <a href="" title="更改头像" class="">
+                    <img src="{{$user->avatar}}" alt="" class="img-fluid rounded-circle mx-auto d-block">
+                </a>
+            @endif
         </li>
         <li class="text-center py-3"><h3>{{$user->name}}</h3></li>
         <li>
@@ -28,7 +30,7 @@
     <ul class="list-unstyled text-center">
         <li class="mb-2"><b>转寄管理</b></li>
         <li><a href="{{route('user-address')}}">地址管理</a></li>
-        <li><a href="{{route('user-address-add')}}">添加地址</a></li>
+        <li><a href="{{route('user-address-add', Auth::id())}}">添加地址</a></li>
         <li><a href="">代收运单管理</a></li>
         <li><a href="">转寄订单</a></li>
         <li><a href="">代收仓库地址</a></li>
@@ -40,7 +42,7 @@
     <hr>
     <ul class="list-unstyled text-center">
         <li class="mb-2"><b>我的文章</b></li>
-        <li><a href="">文章管理</a></li>
+        <li><a href="{{route('posts.manage', Auth::id())}}">文章管理</a></li>
         <li><a href="">评价管理</a></li>
     </ul>
 </div>

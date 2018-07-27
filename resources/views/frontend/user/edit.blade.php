@@ -7,7 +7,7 @@
             </div>
             <div class="col-6">
                 <div class="userinfo">
-                    <form action="{{ route('users.update', $user->id) }}" method="POST" accept-charset="UTF-8">
+                    <form action="{{ route('users.update', $user->id) }}" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
                         @csrf
                         @method('put')
                         <nav aria-label="breadcrumb ">
@@ -20,13 +20,6 @@
                         </nav>
                         <div class="card p-3">
                             <div class="card-body" id="login">
-                                {{--<div class="form-group">
-                                    @if($user->avatar)
-                                        <img class="rounded-circle img-fluid" src="{{ $user->avatar }}" width="50"/>
-                                    @endif
-                                    <label for="avatar" class="avatar-label btn btn-outline-success " >头像上传</label>
-                                    <input type="file" name="avatar" id="avatar" style="visibility: hidden;">
-                                </div>--}}
                                 <div class="login-form">
                                     <div class="form-group">
                                         <label for="text"><i class="fas fa-user"></i>&nbsp;用户名</label>
@@ -40,18 +33,14 @@
                                         <label for="text"><i class="fas fa-pen-nib"></i>&nbsp;个人简介</label>
                                         <textarea type="text" class="form-control" name="introduction" placeholder="最多80个字符" rows="3" style="resize: none;">{{ old('introduction', $user->introduction ) }}</textarea>
                                     </div>
-                                    {{--<div class="form-group">
-                                        <label for="old-pwd"><i class="fas fa-key"></i>&nbsp;旧密码</label>
-                                        <input type="password" class="form-control" id="old-pwd" placeholder="Old Password">
-                                    </div>
                                     <div class="form-group">
-                                        <label for="new-pwd"><i class="fas fa-key"></i>&nbsp;新密码</label>
-                                        <input type="password" class="form-control" id="new-pwd" placeholder="New Password">
+                                        <label for="avatar_upload" class="btn btn-sm btn-outline-primary">上传头像</label>
+                                        <input type="file" name="avatar" style="opacity:0;" id="avatar_upload">
+                                        @if($user->avatar)
+                                            <br>
+                                            <img class="rounded-circle img-fluid" src="{{ $user->avatar }}" width="80" />
+                                        @endif
                                     </div>
-                                    <div class="form-group">
-                                        <label for="confirm-new-pwd"><i class="fas fa-key"></i>&nbsp;确认新密码</label>
-                                        <input type="password" class="form-control" id="confirm-new-pwd" placeholder="Confirm New Password">
-                                    </div>--}}
                                     @include('frontend.layouts._error')
                                 </div>
                             </div>

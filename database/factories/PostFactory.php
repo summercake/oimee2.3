@@ -8,7 +8,7 @@ $factory->define(App\Models\Post::class, function (Faker $faker){
     $created_at = $faker->dateTimeThisMonth($updated_at);
     return [
         'title'       => $sentence,
-        'body'        => $faker->text(),
+        'body'        => $faker->paragraphs($nb = 5, $asText = true),
         'user_id'     => $faker->numberBetween($min = 1, $max = 100),
         'category_id' => $faker->numberBetween($min = 1, $max = 100),
         'tag_id'      => $faker->numberBetween($min = 1, $max = 100),

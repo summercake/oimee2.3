@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="col">
                                     <p class="m-0">
-                                        <a href="{{route('users.edit',Auth::id())}}" class="btn btn-sm btn-outline-primary pull-right"><b>查看</b></a>
+                                        <a href="{{route('users.edit', Auth::id())}}" class="btn btn-sm btn-outline-primary pull-right"><b>查看</b></a>
                                     </p>
                                 </div>
                             </div>

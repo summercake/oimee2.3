@@ -21,16 +21,16 @@
                             <div class="card-body" id="login">
                                 <div class="login-form">
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1"><i class="fas fa-key"></i>&nbsp;旧密码</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                        <label for="old-pwd"><i class="fas fa-key"></i>&nbsp;旧密码</label>
+                                        <input type="password" class="form-control" id="old-pwd" placeholder="Password">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1"><i class="fas fa-key"></i>&nbsp;密码</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                        <label for="new-pwd"><i class="fas fa-key"></i>&nbsp;密码</label>
+                                        <input type="password" class="form-control" id="new-pwd" placeholder="Password">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1"><i class="fas fa-key"></i>&nbsp;确认密码</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                        <label for="new-pwd"><i class="fas fa-key"></i>&nbsp;确认密码</label>
+                                        <input type="password" class="form-control" id="new-pwd" placeholder="Password">
                                     </div>
                                     <div class="row justify-content-center login-btn">
                                     </div>

@@ -21,7 +21,7 @@
                     <span class="text-primary">/</span>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class=" ml-3" style="font-size: 1.25rem;"><b>社区</b></a>
+                    <a href="{{route('posts.list')}}" class=" ml-3" style="font-size: 1.25rem;"><b>社区</b></a>
                 </li>
             </ul>
             <form action="{{route('discount-list')}}" method="get" class="form-inline my-2 mx-auto d-none d-xl-block ">
@@ -63,7 +63,9 @@
                 @else
                     <li class="nav-item">
                         <a class="nav-link px-0 mx-2" href="{{route('users.show', Auth::id())}}">
-                            <img src="{{asset('/img/avatar.jpg')}}" width="16" class="rounded-circle d-inline" alt="">
+                            @if(Auth::user()->avatar)
+                                <img src="{{Auth::user()->avatar}}" width="16" class="rounded-circle d-inline" alt="">
+                            @endif
                             <b>我的欧米</b>
                         </a>
                     </li>

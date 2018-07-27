@@ -15,6 +15,8 @@ Route::get('/', 'PageController@root')->name('home');
 Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);
 Route::get('/users/password/{user}', 'UsersController@pwdEdit')->name('user.pwd.edit');
 Route::post('/users/password', 'UsersController@pwdUpdate')->name('user.pwd.update');
+//Route::get('/users/posts/create/{user}', 'UsersController@postCreate')->name('users.posts.create');
+//Route::post('/users/posts', 'UsersController@postStore')->name('users.posts.store');
 //Auth::routes();
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -30,6 +32,15 @@ Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+
+Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
+
+Route::resource('posts', 'PostsController', ['only' => ['index', 'create', 'store', 'update', 'edit', 'destroy']]);
+Route::get('/users/{user}/post', 'PostsController@list')->name('posts.manage');
+Route::get('/posts', 'PostsController@index')->name('posts.list');
+Route::get('/posts/{post}/{slug?}', 'PostsController@show')->name('posts.show');
+Route::post('/upload_image', 'PostsController@uploadImage')->name('posts.upload_image');
+
 
 
 Route::get('/about', function (){
@@ -57,8 +68,6 @@ Route::get('/discount-details', function (){
 //Route::get('/user/info', function (){
 //    return view('frontend.user.info');
 //})->name('user-info');
-
-
 
 Route::get('/user/address', function (){
     return view('frontend.user.address');

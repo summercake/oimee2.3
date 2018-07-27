@@ -9,6 +9,10 @@ class UserPolicy
 {
     use HandlesAuthorization;
 
+    public function __construct()
+    {
+    }
+
     public function show(User $currentUser, User $user)
     {
         return $currentUser->id === $user->id;

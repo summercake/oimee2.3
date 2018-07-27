@@ -6,10 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {{-- Token --}}
     <meta name="csrf-token" content="{{csrf_token()}}">
+    <meta name="description" content="@yield('description', 'LaraBBS 爱好者社区')" />
     {{-- Title --}}
-    <title>@yield('title', 'Oimee') - Oimee</title>
+    <title>@yield('title', 'Oimee') - 欧米</title>
     {{-- Style --}}
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    @yield('styles')
 </head>
 <body>
 <div id="app" class="container-fluid {{ route_class() }}-page">
@@ -21,6 +23,6 @@
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('/js/font-awesome.js') }}"></script>
-@yield('script')
+@yield('scripts')
 </body>
 </html>

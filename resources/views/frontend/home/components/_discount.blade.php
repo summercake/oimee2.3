@@ -9,11 +9,11 @@
         </div>
     </div>
     <div class="row" id="adv-second">
-        <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
             @include('frontend.home.components.single-dis-info-row')
             @include('frontend.home.components.nest-dis-info-row')
         </div>
-        <div class="col-4 d-none d-xl-block d-lg-block">
+        <div class="col-lg-4 col-md-4 d-none d-xl-block d-lg-block d-md-block">
             @include('frontend.layouts._dis-info-right')
         </div>
     </div>
